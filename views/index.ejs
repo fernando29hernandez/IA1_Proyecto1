@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Proyecto 1</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Zoológico La Aurora</h1>
+    <div>
+      <div>
+        <h3>Longevidad</h3>
+        <input type="radio" id="r1" name="longevidad" value="1"> Longevidad Baja
+        <input type="radio" id="r2" name="longevidad" value="2"> Longevidad Normal
+        <input type="radio" id="r3" name="longevidad" value="3"> Longevidad Alta
+      </div>
+      <div>
+        <h3>Tipo Especie</h3>
+        <input type="radio" id="e1" name="especie" value="1"> Pez
+        <input type="radio" id="e2" name="especie" value="2"> Anfibio
+        <input type="radio" id="e3" name="especie" value="3"> Reptil
+      </div>
+      <div>
+        <h3>Huesos</h3>
+        <input type="radio" id="h1" name="huesos" value="1"> Invertebrado
+        <input type="radio" id="h2" name="huesos" value="2"> Vertebrado
+      </div>
+    </div>
+    <br>
+    <div>
+      El <input type="text" id="nombre" /> tiene las siguiente caracteristicas
+      <button id="enviar" onclick="consultar()">Consultar</button>
+    </div>
+    <br>
+    <div>
+      <table id="animales">
+        <thead>
+          <th>No.</th>
+          <th>Nombre</th>
+          <th>Nombre Cientifico</th>
+          <th>Info</th>
+
+        </thead>
+        <tbody id="cuerpo">
+        </tbody>
+      </table>
+      <h3 id="mensaje"></h3>
+    </div>
+  </div>
+</body>
+
+<script>
+  var opcion = "";
+  async function consultar() {
+    opcion = "";
+    let nombre = "nada";
+    if (document.getElementById('nombre').value != "") {
+      nombre = document.getElementById('nombre').value;
+
+      if (document.getElementById('r1').checked) {
+        opcion = ",longevidadbaja(" + nombre + ")";
+      } else if (document.getElementById('r2').checked) {
+        opcion = ",longevidadmedia(" + nombre + ")"
+      } else if (document.getElementById('r3').checked) {
+        opcion = ",longevidadalta(" + nombre + ")"
+      }
+      if (document.getElementById('e1').checked) {
+        opcion += ",pez(" + nombre + ")"
+      } else if (document.getElementById('e2').checked) {
+        opcion += ",anfibio(" + nombre + ")"
+      } else if (document.getElementById('e3').checked) {
+        opcion += ",reptil(" + nombre + ")"
+      }
+      if (document.getElementById('h1').checked) {
+        opcion += ",invertebrados(" + nombre + ")"
+      } else if (document.getElementById('h2').checked) {
+        opcion += ",vertebrados(" + nombre + ")"
+      }
+    } else {
+
+      if (document.getElementById('r1').checked) {
+        opcion = ",longevidadbaja(N)";
+      } else if (document.getElementById('r2').checked) {
+        opcion = ",longevidadmedia(N)"
+      } else if (document.getElementById('r3').checked) {
+        opcion = ",longevidadalta(N)"
+      }
+      if (document.getElementById('e1').checked) {
+        opcion += ",pez(N)"
+      } else if (document.getElementById('e2').checked) {
+        opcion += ",anfibio(N)"
+      } else if (document.getElementById('e3').checked) {
+        opcion += ",reptil(N)"
+      }
+      if (document.getElementById('h1').checked) {
+        opcion += ",invertebrados(N)"
+      } else if (document.getElementById('h2').checked) {
+        opcion += ",vertebrados(N)"
+      }
+    }
+    var data = { "cadena": opcion, "nombrebuscado": nombre };
+    console.log(JSON.stringify(data));
+    await fetch('/consulta', {
+      method: 'POST', // or 'PUT'
+      body: JSON.stringify(data),  // data can be `string` or {object}!
+      headers: {
+        'Content-Type': 'application/json'
+      }// data can be `string` or {object}!
+    }) // data can be `string` or {object}!})
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (myJson) {
+
+        let resultado = myJson.resultado;
+        if (nombre == "nada") {
+
+          let arreglo_resultado = JSON.parse(JSON.stringify(resultado));
+          var Table1 = document.getElementById("mensaje");
+          Table1.innerHTML = "";
+          var Table = document.getElementById("cuerpo");
+          Table.innerHTML = "";
+          
+          let nonum = arreglo_resultado.length;
+
+          arreglo_resultado.forEach(element => {
+            var table = document.getElementById("cuerpo");
+            var row = table.insertRow(0);
+            var cell0 = row.insertCell(0);
+            var cell1 = row.insertCell(1);
+            var cell2 = row.insertCell(2);
+            var cell3 = row.insertCell(3);
+            cell0.innerHTML = nonum;
+            cell1.innerHTML = element.nombre;
+            cell2.innerHTML = element.cientifico;
+            cell3.innerHTML = "<a href=\"/view/" + element.id + "\">Info</a>";
+
+            nonum -= 1;
+          });
+          nonum = arreglo_resultado.length;
+        } else {
+          var Table = document.getElementById("cuerpo");
+          Table.innerHTML = "";
+          var Table = document.getElementById("mensaje");
+          Table.innerHTML = resultado;
+
+        }
+      });
+
+  }
+
+</script>
+
+</html>

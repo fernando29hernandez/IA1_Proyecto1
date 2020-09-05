@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Detail</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <div class="container">
+        <h3><a href="/">Busquedas</a></h3>
+        <h1>Animal </h1>
+        <% if (resultado){ %>
+            <img src="<%= resultado.foto%>" class="img-responsive" height="210" width="210" alt="">
+        <table>
+            <tbody>
+                <tr>
+                    <td>Nombre</td>
+                    <td>:</td>
+                    <td><%= resultado.nombre %></td>
+                </tr>
+                <tr>
+                    <td>Nombre cientifico</td>
+                    <td>:</td>
+                    <td><%= resultado.cientifico %></td>
+                </tr>
+                <tr>
+                    <td>Peso</td>
+                    <td>:</td>
+                    <td><%= resultado.peso %> Kg.</td>
+                </tr>
+                <tr>
+                    <td>Longitud</td>
+                    <td>:</td>
+                    <td><%= resultado.longitud %> m.</td>
+                </tr>
+                <tr>
+                    <td>Edad Maxima</td>
+                    <td>:</td>
+                    <td><%= resultado.annios %> Años.</td>
+                </tr>
+                <tr>
+                    <td>Poblacion</td>
+                    <td>:</td>
+                    <td><%= resultado.poblacion %> Ejemplares</td>
+                </tr>
+                <tr>
+                    <td>Habitad</td>
+                    <td>:</td>
+                    <td><%= resultado.habitad %> </td>
+                </tr>
+                <tr>
+                    <td>Velocidad</td>
+                    <td>:</td>
+                    <td><%= resultado.velocidad %> Km/s</td>
+                </tr>
+            </tbody>
+        </table>
+        <% }%>
+    </div>
+</body>
+
+</html>

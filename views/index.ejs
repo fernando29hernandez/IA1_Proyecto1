@@ -4,49 +4,110 @@
 <head>
   <title>Proyecto 1</title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
   <div class="container">
-    <h1>Zoológico La Aurora</h1>
-    <div>
-      <div>
-        <h3>Longevidad</h3>
-        <input type="radio" id="r1" name="longevidad" value="1"> Longevidad Baja
-        <input type="radio" id="r2" name="longevidad" value="2"> Longevidad Normal
-        <input type="radio" id="r3" name="longevidad" value="3"> Longevidad Alta
-      </div>
-      <div>
-        <h3>Tipo Especie</h3>
-        <input type="radio" id="e1" name="especie" value="1"> Pez
-        <input type="radio" id="e2" name="especie" value="2"> Anfibio
-        <input type="radio" id="e3" name="especie" value="3"> Reptil
-      </div>
-      <div>
-        <h3>Huesos</h3>
-        <input type="radio" id="h1" name="huesos" value="1"> Invertebrado
-        <input type="radio" id="h2" name="huesos" value="2"> Vertebrado
-      </div>
-    </div>
-    <br>
-    <div>
-      El <input type="text" id="nombre" /> tiene las siguiente caracteristicas
-      <button id="enviar" onclick="consultar()">Consultar</button>
-    </div>
-    <br>
-    <div>
-      <table id="animales">
-        <thead>
-          <th>No.</th>
-          <th>Nombre</th>
-          <th>Nombre Cientifico</th>
-          <th>Info</th>
+    <div class="row">
+      <div class="col">
+        <h1>Zoológico La Aurora</h1>
+        <div>
+          <div>
+            <h4>Longevidad</h4>
+            <input type="radio" id="r1" name="longevidad" value="1"> Longevidad Baja
+            <input type="radio" id="r2" name="longevidad" value="2"> Longevidad Normal
+            <input type="radio" id="r3" name="longevidad" value="3"> Longevidad Alta
+          </div>
+          <div>
+            <h4>Tipo Especie</h4>
+            <input type="radio" id="e1" name="especie" value="1"> Pez
+            <input type="radio" id="e2" name="especie" value="2"> Anfibio
+            <input type="radio" id="e3" name="especie" value="3"> Reptil
+            <input type="radio" id="e4" name="especie" value="4"> Mamifero
+            <input type="radio" id="e5" name="especie" value="5"> Artropodo
+            <input type="radio" id="e6" name="especie" value="6"> Ave
+          </div>
+          <div>
+            <h4>Huesos</h4>
+            <input type="radio" id="h1" name="huesos" value="1"> Invertebrado
+            <input type="radio" id="h2" name="huesos" value="2"> Vertebrado
+          </div>
+          <div>
+            <h4>Tamaño</h4>
+            <input type="radio" id="t1" name="tamanio" value="1"> Pequeño
+            <input type="radio" id="t2" name="tamanio" value="2"> Grande
+          </div>
+          <div>
+            <h4>Velocidad</h4>
+            <input type="radio" id="ra1" name="velocidad" value="1"> Normal
+            <input type="radio" id="ra2" name="velocidad" value="2"> Rapido
+          </div>
+          <div>
+            <h4>Aspectos Varios</h4>
+            <input type="checkbox" id="nacenenagua" value="1">
+            <label for="nacenenagua"> Nace en Agua</label>
+            <input type="checkbox" id="sangrefria" value="2">
+            <label for="sangrefria"> Sagre Fria </label>
+            <input type="checkbox" id="exoesqueleto" value="3">
+            <label for="exoesqueleto"> Tiene exoesqueleto </label>
+            <input type="checkbox" id="tienenescamas" value="4">
+            <label for="tienenescamas"> Tiene escamas</label><br>
+            <input type="checkbox" id="viveenagua" value="5">
+            <label for="viveenagua"> Viven en agua </label>
+            <input type="checkbox" id="ponenhuevos" value="6">
+            <label for="ponenhuevos"> Pone Huevos</label>
+            <input type="checkbox" id="tienenalas" value="7">
+            <label for="tienenalas"> Tiene Alas </label>
+            <input type="checkbox" id="puedevolar" value="8">
+            <label for="puedevolar"> Puede Volar </label><br>
+            <input type="checkbox" id="sangrecaliente" value="9">
+            <label for="sangrecaliente"> Sangre Caliente</label>
+            <input type="checkbox" id="tomanleche" value="10">
+            <label for="tomanleche"> Toma Leche </label>
+            <input type="checkbox" id="noestaenpeligro" value="6">
+            <label for="noestaenpeligro"> No esta en peligro</label>
+            <input type="checkbox" id="tienevida" value="7">
+            <label for="tienevida"> Tiene Vida </label><br>
+            <input type="checkbox" id="puedenrespirar" value="8">
+            <label for="puedenrespirar"> Puede Respirar </label>
+            <input type="checkbox" id="notienehuesos" value="9">
+            <label for="notienehuesos"> No tiene Huesos</label>
+            <input type="checkbox" id="tienehuesos" value="10">
+            <label for="tienehuesos"> Tiene Huesos </label>
+            <input type="checkbox" id="puedensentir" value="10">
+            <label for="puedensentir"> Pueden Sentir </label><br>
 
-        </thead>
-        <tbody id="cuerpo">
-        </tbody>
-      </table>
-      <h3 id="mensaje"></h3>
+          </div>
+        </div>
+        <br>
+        <div>
+          El <input type="text" id="nombre" /> tiene las siguiente caracteristicas
+          <button id="enviar" onclick="consultar()">Consultar</button>
+        </div>
+        <br>
+
+      </div>
+
+    <div class="col">
+      <div>
+        <table id="animales">
+          <thead>
+            <th>No.</th>
+            <th>Nombre</th>
+            <th>Nombre Cientifico</th>
+            <th>Info</th>
+
+          </thead>
+          <tbody id="cuerpo">
+          </tbody>
+        </table>
+        <h4 id="mensaje"></h4>
+      </div>
     </div>
   </div>
 </body>
@@ -72,11 +133,75 @@
         opcion += ",anfibio(" + nombre + ")"
       } else if (document.getElementById('e3').checked) {
         opcion += ",reptil(" + nombre + ")"
+      } else if (document.getElementById('e4').checked) {
+        opcion += ",mamifero(" + nombre + ")"
+      } else if (document.getElementById('e5').checked) {
+        opcion += ",artropodo(" + nombre + ")"
+      } else if (document.getElementById('e6').checked) {
+        opcion += ",ave(" + nombre + ")"
       }
       if (document.getElementById('h1').checked) {
         opcion += ",invertebrados(" + nombre + ")"
       } else if (document.getElementById('h2').checked) {
         opcion += ",vertebrados(" + nombre + ")"
+      }
+      if (document.getElementById('t1').checked) {
+        opcion += ",animalpequeno(" + nombre + ")"
+      } else if (document.getElementById('t2').checked) {
+        opcion += ",animalgrande(" + nombre + ")"
+      }
+      if (document.getElementById('ra1').checked) {
+        opcion += ",animalnormal(" + nombre + ")"
+      } else if (document.getElementById('ra2').checked) {
+        opcion += ",animalrapido(" + nombre + ")"
+      }
+      if(document.getElementById('nacenenagua').checked){
+        opcion += ",nacenenagua(" + nombre + ")"
+      }
+      if(document.getElementById('sangrefria').checked){
+        opcion += ",sangrefria(" + nombre + ")"
+      }
+      if(document.getElementById('exoesqueleto').checked){
+        opcion += ",exoesqueleto(" + nombre + ")"
+      }
+      if(document.getElementById('tienenescamas').checked){
+        opcion += ",tienenescamas(" + nombre + ")"
+      }
+      if(document.getElementById('viveenagua').checked){
+        opcion += ",viveenagua(" + nombre + ")"
+      }
+      if(document.getElementById('ponenhuevos').checked){
+        opcion += ",ponenhuevos(" + nombre + ")"
+      }
+      if(document.getElementById('tienenalas').checked){
+        opcion += ",tienenalas(" + nombre + ")"
+      }
+      if(document.getElementById('puedevolar').checked){
+        opcion += ",puedevolar(" + nombre + ")"
+      }
+      if(document.getElementById('sangrecaliente').checked){
+        opcion += ",sangrecaliente(" + nombre + ")"
+      }
+      if(document.getElementById('tomanleche').checked){
+        opcion += ",tomanleche(" + nombre + ")"
+      }
+      if(document.getElementById('noestaenpeligro').checked){
+        opcion += ",noestaenpeligro(" + nombre + ")"
+      }
+      if(document.getElementById('tienevida').checked){
+        opcion += ",tienevida(" + nombre + ")"
+      }
+      if(document.getElementById('puedenrespirar').checked){
+        opcion += ",puedenrespirar(" + nombre + ")"
+      }
+      if(document.getElementById('notienehuesos').checked){
+        opcion += ",notienehuesos(" + nombre + ")"
+      }
+      if(document.getElementById('tienehuesos').checked){
+        opcion += ",tienehuesos(" + nombre + ")"
+      }
+      if(document.getElementById('puedensentir').checked){
+        opcion += ",puedensentir(" + nombre + ")"
       }
     } else {
 
@@ -93,12 +218,77 @@
         opcion += ",anfibio(N)"
       } else if (document.getElementById('e3').checked) {
         opcion += ",reptil(N)"
+      } else if (document.getElementById('e4').checked) {
+        opcion += ",mamifero(N)"
+      } else if (document.getElementById('e5').checked) {
+        opcion += ",artropodo(N)"
+      } else if (document.getElementById('e6').checked) {
+        opcion += ",ave(N)"
       }
       if (document.getElementById('h1').checked) {
         opcion += ",invertebrados(N)"
       } else if (document.getElementById('h2').checked) {
         opcion += ",vertebrados(N)"
       }
+      if (document.getElementById('t1').checked) {
+        opcion += ",animalpequeno(N)"
+      } else if (document.getElementById('t2').checked) {
+        opcion += ",animalgrande(N)"
+      }
+      if (document.getElementById('ra1').checked) {
+        opcion += ",animalnormal(N)"
+      } else if (document.getElementById('ra2').checked) {
+        opcion += ",animalrapido(N)"
+      }
+      if(document.getElementById('nacenenagua').checked){
+        opcion += ",nacenenagua(N)"
+      }
+      if(document.getElementById('sangrefria').checked){
+        opcion += ",sangrefria(N)"
+      }
+      if(document.getElementById('exoesqueleto').checked){
+        opcion += ",exoesqueleto(N)"
+      }
+      if(document.getElementById('tienenescamas').checked){
+        opcion += ",tienenescamas(N)"
+      }
+      if(document.getElementById('viveenagua').checked){
+        opcion += ",viveenagua(N)"
+      }
+      if(document.getElementById('ponenhuevos').checked){
+        opcion += ",ponenhuevos(N)"
+      }
+      if(document.getElementById('tienenalas').checked){
+        opcion += ",tienenalas(N)"
+      }
+      if(document.getElementById('puedevolar').checked){
+        opcion += ",puedevolar(N)"
+      }
+      if(document.getElementById('sangrecaliente').checked){
+        opcion += ",sangrecaliente(N)"
+      }
+      if(document.getElementById('tomanleche').checked){
+        opcion += ",tomanleche(N)"
+      }
+      if(document.getElementById('noestaenpeligro').checked){
+        opcion += ",noestaenpeligro(N)"
+      }
+      if(document.getElementById('tienevida').checked){
+        opcion += ",tienevida(N)"
+      }
+      if(document.getElementById('puedenrespirar').checked){
+        opcion += ",puedenrespirar(N)"
+      }
+      if(document.getElementById('notienehuesos').checked){
+        opcion += ",notienehuesos(N)"
+      }
+      if(document.getElementById('tienehuesos').checked){
+        opcion += ",tienehuesos(N)"
+      }
+      if(document.getElementById('puedensentir').checked){
+        opcion += ",puedensentir(N)"
+      }
+      
     }
     var data = { "cadena": opcion, "nombrebuscado": nombre };
     console.log(JSON.stringify(data));
@@ -122,7 +312,7 @@
           Table1.innerHTML = "";
           var Table = document.getElementById("cuerpo");
           Table.innerHTML = "";
-          
+
           let nonum = arreglo_resultado.length;
 
           arreglo_resultado.forEach(element => {
@@ -152,5 +342,7 @@
   }
 
 </script>
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </html>

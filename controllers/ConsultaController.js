@@ -4,13 +4,14 @@ var consultaController = {};
 var reglas = require("../data/Contexto.js");
 var datos = require("../data/datos.js");
 var program = reglas;
-session.consult(program);
+var fs = require("fs");
+fs.readFile("./data/contexto.pl", "utf8", function (err, data) {
+  session.consult(data);
+});
+
 var cadena = "";
 var contador = 0;
 var arregloenvio = [];
-
-
-
 
 function busquedaGenerica(temp) {
   try {
@@ -46,11 +47,11 @@ function procesar(consulta_cadena, nombre) {
     datos.forEach(function (animal) {
       if (animal.nombre == nombre) {
         session.query(
-          "animal(nombre(" +
+          "animal(" +
             animal.nombre +
-            "),id(" +
+            "," +
             animal.id +
-            "))" +
+            ",_,_,_,_)" +
             consulta_cadena +
             "."
         );
@@ -58,16 +59,14 @@ function procesar(consulta_cadena, nombre) {
       }
     });
   } else {
-    session.query("animal(nombre(N),id(I))" + consulta_cadena + ".");
+    session.query("animal(N,I,_,_,_,_)" + consulta_cadena + ".");
     session.answers((x) => busquedaGenerica("" + pl.format_answer(x)));
   }
 }
 
-
 consultaController.index = function (req, res) {
   res.render("../views/index");
 };
-
 
 consultaController.list = function (req, res) {
   procesar(req.body.cadena, req.body.nombrebuscado);
@@ -77,7 +76,6 @@ consultaController.list = function (req, res) {
   contador = 0;
 };
 
-
 consultaController.view = function (req, res) {
   let indice = req.params.id;
   datos.forEach(function (animal) {
@@ -86,6 +84,5 @@ consultaController.view = function (req, res) {
     }
   });
 };
-
 
 module.exports = consultaController;

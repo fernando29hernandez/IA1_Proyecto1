@@ -44,8 +44,9 @@
           </div>
           <div>
             <h4>Velocidad</h4>
-            <input type="radio" id="ra1" name="velocidad" value="1"> Normal
-            <input type="radio" id="ra2" name="velocidad" value="2"> Rapido
+            <input type="radio" id="ra1" name="velocidad" value="1"> Lento
+            <input type="radio" id="ra2" name="velocidad" value="2"> Normal
+            <input type="radio" id="ra3" name="velocidad" value="3"> Rapido
           </div>
           <div>
             <h4>Aspectos Varios</h4>
@@ -151,8 +152,10 @@
         opcion += ",animalgrande(" + nombre + ")"
       }
       if (document.getElementById('ra1').checked) {
-        opcion += ",animalnormal(" + nombre + ")"
+        opcion += ",animallento(" + nombre + ")"
       } else if (document.getElementById('ra2').checked) {
+        opcion += ",animalnormal(" + nombre + ")"
+      } else if (document.getElementById('ra3').checked) {
         opcion += ",animalrapido(" + nombre + ")"
       }
       if(document.getElementById('nacenenagua').checked){
@@ -236,8 +239,10 @@
         opcion += ",animalgrande(N)"
       }
       if (document.getElementById('ra1').checked) {
-        opcion += ",animalnormal(N)"
+        opcion += ",animallento(N)"
       } else if (document.getElementById('ra2').checked) {
+        opcion += ",animalnormal(N)"
+      }else if (document.getElementById('ra3').checked) {
         opcion += ",animalrapido(N)"
       }
       if(document.getElementById('nacenenagua').checked){
